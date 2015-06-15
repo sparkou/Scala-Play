@@ -1,0 +1,72 @@
+
+
+<div ng-controller="LetterCtrl as lc">
+    <div class="jumbotron">
+        <h2>A Modern Web Template</h2>
+        <p class="pull-right">... a UI created using AngularJS and Bootstrap</p>
+    </div>
+
+    <div>
+
+        <div class="form-group">
+            <h3>
+                Letters
+                <a ng-href="/#/letters/create" class="btn btn-primary pull-right" id="btn_letter_create">Write Letters</a>
+            </h3>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" ng-model="searchText" placeholder="Type here to filter Letters...">
+            <hr>
+        </div>
+
+
+        <table id="letter_list" class="table table-striped">
+            <thead>
+            <tr>
+                <th>FirstLine</th>
+                <th>MiddleLine</th>
+                <th>LastLine</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="ltr in lc.letters | filter:searchText">
+                <td>
+                    {{ ltr.firstLine }}
+                </td>
+                <td>
+                    {{ ltr.middleLine }}
+                </td>
+                <td>
+                    {{ ltr.lastLine }}
+                </td>
+                <td>
+                    <a ng-href="/letters/{{ltr.firstLine}}/{{ltr.middleLine}}/{{ltr.lastLine}}" class="btn btn-success pull-right" id="btn_letter_delete">Delete Letter</a>
+                </td>
+            </tr>
+            <tr ng-hide="lc.letters.length">
+                <td colspan="3">
+                    <p class="text-center">No Letters Found</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>
+            Debug
+        </h3>
+        <hr>
+        <accordion>
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    Json Data <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </accordion-heading>
+                <pre>{{ lc.letters | json }}</pre>
+            </accordion-group>
+        </accordion>
+    </div>
+
+</div>
+
+

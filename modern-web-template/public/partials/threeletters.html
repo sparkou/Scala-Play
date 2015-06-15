@@ -1,0 +1,37 @@
+
+<div ng-controller="LettersCtrl as lt">
+    <div class="jumbotron">
+        <h2>三行情书</h2>
+        <p class="pull-center">三行情书</p>
+    </div>
+
+    <div>
+
+        <div class="form-group">
+            <h3>
+                Letters
+                <a ng-href="/#/letters/create" class="btn btn-primary pull-right" id="btn_letter_create">Write Letters</a>
+            </h3>
+            <hr>
+        </div>
+
+        <div class="form-group">
+            <h3>
+                {{lt.letters.firstLine}}
+            </h3>
+            <h3>
+                {{lt.letters.middleLine}}
+            </h3>
+            <h3>
+                {{lt.letters.lastLine}}
+            </h3>
+            <div class="col-sm-offset-4 col-sm-8 text-right">
+                <a ng-href="/#/letters/delete/{{usr.firstName}}/{{usr.lastName}}" class="btn btn-success pull-right" id="btn_user_update">Edit User</a>
+            </div>
+            <hr>
+        </div>
+
+
+    </div>
+
+</div>

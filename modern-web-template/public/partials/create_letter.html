@@ -1,0 +1,48 @@
+<div ng-controller="CreateLetterCtrl as clc">
+    <h1>Create Letter</h1>
+
+    <form id="CreateLetterForm" name="CreateLetterForm" class="form-horizontal" role="form"
+          ng-submit="clc.createLetter()">
+        <legend class="sm-col-12">Three Row Letters</legend>
+
+        <div class="form-group">
+            <label id="lbl_firstLine" for="firstLine" class="col-sm-4 control-label">First Line</label>
+
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="firstLine" id="firstLine" placeholder=""
+                       ng-model="clc.letter.firstLine">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lbl_middleLine" for="middleLine" class="col-sm-4 control-label">Middle Line</label>
+
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="middleLine" id="middleLine" placeholder=""
+                       ng-model="clc.letter.middleLine">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="lbl_lastLine" for="lastLine" class="col-sm-4 control-label">Last Line</label>
+
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="lastLine" id="lastLine" placeholder=""
+                       ng-model="clc.letter.lastLine">
+            </div>
+        </div>
+
+        <pre>{{ clc.letter | json }}</pre>
+
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8 text-right">
+                <a ng-href="/#/" id="btn_cancel" class="btn btn-warning">Cancel</a>
+
+                <button type="submit" class="btn btn-success" id="btn_create">Create Letter</button>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
